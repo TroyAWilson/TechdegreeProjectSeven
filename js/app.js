@@ -4,6 +4,7 @@ const phrase = document.getElementById('phrase');
 const ul = document.getElementsByTagName('ul')[0];
 const qwertyBtns = document.getElementsByTagName('button');
 const heartImg =document.getElementsByTagName('img');
+
 let missed = 0;
 
 let phrases = [
@@ -48,7 +49,7 @@ function addPhraseToDisplay(){
 
 function checkLetter(btnText){
     let phraseList = document.getElementsByClassName('phraseClass');
-
+    let j=1;
     for (let i = 0; i < phraseList.length; i++)
     {
       if (btnText === phraseList[i].innerHTML)
@@ -58,13 +59,6 @@ function checkLetter(btnText){
     };
 };
 
-
-for (let i = 0; i < qwertyBtns.length; i++){
-  qwertyBtns[i].addEventListener("click", () =>{
-    checkLetter(qwertyBtns[i].textContent);
-  });
-};
-
 //event listener for the keyboard
 //pass letter to checkLetter function
 //store inside of variable letterFound
@@ -72,9 +66,19 @@ for (let i = 0; i < qwertyBtns.length; i++){
 //if checkLetter returns null
 //remove a life and increase missed count
 
-
+function keyboardFunction(){
+  for (let i = 0; i < qwertyBtns.length; i++){
+    qwertyBtns[i].addEventListener("click", () =>{
+      let letterFound = qwertyBtns[i].textContent;
+      checkLetter(letterFound);
+    });
+  };
+}
 //create a checkWin funciton
 function checkWin(){
+  if (missed ==5){
+    console.log('You lose, loser!');
+  }
   //if missed count = 5
       //display game loss
 };
@@ -85,3 +89,5 @@ startButton[0].addEventListener("click", () =>{
   addPhraseToDisplay();
   document.getElementById('overlay').style.display = 'none';
 });
+
+keyboardFunction();
