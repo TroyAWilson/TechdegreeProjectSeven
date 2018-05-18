@@ -33,8 +33,12 @@ function addPhraseToDisplay(){
     {
       let li = document.createElement('li');
       li.innerHTML = phraseArray[i];
-      ul.appendChild(li).style.display ="none";
+      ul.appendChild(li).style.opacity ="0";
       li.classList.add('phraseClass');
+
+      if(li.textContent == " "){
+        li.classList.add('space');
+      }
     }
 };
 
@@ -42,17 +46,15 @@ function addPhraseToDisplay(){
 //addPhraseToDisplay(phraseArray);
 
 function checkLetter(btnText){
-    console.log(btnText);
     let phraseList = document.getElementsByClassName('phraseClass');
 
     for (let i = 0; i < phraseList.length; i++)
     {
       if (btnText === phraseList[i].innerHTML)
       {
-        phraseList[i].style.display ="inline-block";
+        phraseList[i].style.opacity ="1";
       }
     };
-
 };
 
 

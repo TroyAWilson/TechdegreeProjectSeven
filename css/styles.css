@@ -80,8 +80,8 @@ button:hover{
 
 /* Scoreboard */
 
-.tries {
-  background-image: url('../images/liveHeart.png');
+.tries{
+  background-repeat: no-repeat;
 }
 
 /* Phrase */
@@ -172,4 +172,13 @@ button:hover{
 
 .lose a {
   color: var(--color-lose);
+}
+.phraseClass{
+    font-size: 1.5em;
+}
+.tries{
+  background-repeat: no-repeat;
+}
+.space{
+  content:"";
 }
