@@ -3,6 +3,7 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const ul = document.getElementsByTagName('ul')[0];
 const qwertyBtns = document.getElementsByTagName('button');
+const heartImg =document.getElementsByTagName('img');
 let missed = 0;
 
 let phrases = [
