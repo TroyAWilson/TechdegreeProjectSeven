@@ -49,14 +49,18 @@ function addPhraseToDisplay(){
 
 function checkLetter(btnText){
     let phraseList = document.getElementsByClassName('phraseClass');
-    let j=1;
     for (let i = 0; i < phraseList.length; i++)
     {
       if (btnText === phraseList[i].innerHTML)
       {
         phraseList[i].style.opacity ="1";
       }
+      // else{
+      //   missed++;
+      //   console.log(missed);
+      // } increases miss count to the phraseList.length, because it iterates through all
     };
+
 };
 
 //event listener for the keyboard
@@ -71,9 +75,15 @@ function keyboardFunction(){
     qwertyBtns[i].addEventListener("click", () =>{
       let letterFound = qwertyBtns[i].textContent;
       checkLetter(letterFound);
+      // if(checkLetter(letterFound) == null)
+      // {
+      //   missed++;
+      //   console.log(missed);
+      // } Will always return null and will increment missed even if the letter is correct
     });
   };
 }
+
 //create a checkWin funciton
 function checkWin(){
   if (missed ==5){
