@@ -99,6 +99,7 @@ button:hover{
 
 .space {
   width: 15px;
+  opacity: 0;
 }
 
 .show {
@@ -172,13 +173,4 @@ button:hover{
 
 .lose a {
   color: var(--color-lose);
-}
-.phraseClass{
-    font-size: 1.5em;
-}
-.tries{
-  background-repeat: no-repeat;
-}
-.space{
-  content:"";
 }

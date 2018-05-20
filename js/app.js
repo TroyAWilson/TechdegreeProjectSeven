@@ -12,7 +12,7 @@ let phrases = [
   "people say nothing is impossible",
   "just remember if the world didnt suck we would all fall off",
   "cheer up the worst is yet to come",
-  "he who laughs last didnt get it"
+  "he who laughs last did not get it"
 ];
 
 
@@ -35,11 +35,14 @@ function addPhraseToDisplay(){
     {
       let li = document.createElement('li');
       li.innerHTML = phraseArray[i];
-      ul.appendChild(li).style.opacity ="0";
-      li.classList.add('phraseClass');
+      ul.appendChild(li);
+      li.classList.add('letter');
 
       if(li.textContent == " "){
         li.classList.add('space');
+      }
+      else{
+        li.textContent.display ="none";
       }
     }
 };
@@ -48,19 +51,18 @@ function addPhraseToDisplay(){
 //addPhraseToDisplay(phraseArray);
 
 function checkLetter(btnText){
-    let phraseList = document.getElementsByClassName('phraseClass');
+    let phraseList = document.getElementsByClassName('letter');
+    let check = false;
     for (let i = 0; i < phraseList.length; i++)
     {
       if (btnText === phraseList[i].innerHTML)
       {
         phraseList[i].style.opacity ="1";
+        phraseList[i].classList.add('show');
+        check = true;
       }
-      // else{
-      //   missed++;
-      //   console.log(missed);
-      // } increases miss count to the phraseList.length, because it iterates through all
     };
-
+    return check;
 };
 
 //event listener for the keyboard
@@ -75,11 +77,35 @@ function keyboardFunction(){
     qwertyBtns[i].addEventListener("click", () =>{
       let letterFound = qwertyBtns[i].textContent;
       checkLetter(letterFound);
-      // if(checkLetter(letterFound) == null)
-      // {
-      //   missed++;
-      //   console.log(missed);
-      // } Will always return null and will increment missed even if the letter is correct
+      qwertyBtns[i].classList.add('chosen');
+
+      if(checkLetter(letterFound) == false)
+      {
+        missed++;
+        console.log(missed);
+      }
+
+      if (missed == 1)
+      {
+        heartImg[0].style.display ="none";
+      }
+      else if (missed ==2)
+      {
+        heartImg[1].style.display ="none"
+      }
+      else if (missed ==3)
+      {
+        heartImg[2].style.display ="none"
+      }
+      else if (missed ==4)
+      {
+        heartImg[3].style.display ="none"
+      }
+      else if (missed ==5)
+      {
+        heartImg[4].style.display ="none"
+      }
+      checkWin();
     });
   };
 }
