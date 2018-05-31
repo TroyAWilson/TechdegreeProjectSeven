@@ -4,13 +4,18 @@ const phrase = document.getElementById('phrase');
 const ul = document.getElementsByTagName('ul')[0];
 const qwertyBtns = document.getElementsByTagName('button');
 const heartImg =document.getElementsByTagName('img');
+const loseScreen = document.getElementsByClassName('lose');
+const winScreen =document.getElementsByClassName('win');
+const show = document.getElementsByClassName('show');
+const letter = document.getElementsByClassName('letter');
+
 
 let missed = 0;
 
 let phrases = [
   "someday your prince charming will come",
   "people say nothing is impossible",
-  "just remember if the world didnt suck we would all fall off",
+  "if you cant beat them arrange to have them beaten",
   "cheer up the worst is yet to come",
   "he who laughs last did not get it"
 ];
@@ -40,6 +45,7 @@ function addPhraseToDisplay(){
 
       if(li.textContent == " "){
         li.classList.add('space');
+        li.classList.remove('letter');
       }
       else{
         li.textContent.display ="none";
@@ -110,13 +116,40 @@ function keyboardFunction(){
   };
 }
 
+function resetGame(i, id){
+
+    startButton[i].addEventListener("click", () =>{
+      ul.innerHTML ="";
+
+      for (let i =0; i < qwertyBtns.length; i++)
+      {
+        qwertyBtns[i].classList.remove("chosen");
+      }
+
+      addPhraseToDisplay();
+      document.getElementById(id).style.display = 'none';
+      missed = 0;
+
+
+      for(let i =0; i < heartImg.length; i++)
+      {
+        heartImg[i].style.display ="flex";
+      }
+    })
+
+}
+
 //create a checkWin funciton
 function checkWin(){
   if (missed ==5){
-    console.log('You lose, loser!');
+  loseScreen[0].style.display ="flex";
+  resetGame(2,'loseScreen');
   }
-  //if missed count = 5
-      //display game loss
+  else if(show.length == letter.length)
+  {
+    winScreen[0].style.display ="flex";
+    resetGame(1, 'winScreen');
+  }
 };
 
 

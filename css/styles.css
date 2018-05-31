@@ -98,13 +98,21 @@ button:hover{
 }
 
 .space {
-  width: 15px;
   opacity: 0;
+  font-size: var(--font-size-medium);
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  color: transparent;
+  background: var(--color-neutral-light);
+  border-radius: 5px;
 }
 
 .show {
   color: #000;
   background-color: #76CE82;
+  transition: .5s;
 }
 
 /* Keyboard */
@@ -161,6 +169,17 @@ button:hover{
 
 .win {
   background-color: var(--color-win);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: #FFFFFF;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  display: none;
 }
 
 .win a {
@@ -169,6 +188,17 @@ button:hover{
 
 .lose {
   background-color: var(--color-lose);
+  flex-direction: column;
+  display:flex;
+  position: fixed;
+  color: #FFFFFF;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  display: none;
 }
 
 .lose a {
